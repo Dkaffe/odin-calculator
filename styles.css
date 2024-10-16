@@ -1,0 +1,78 @@
+main {
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(128, 128, 128);
+    border-radius: 10px;
+    width: 700px;
+    align-items: center;
+}
+
+section {
+    border: 7px solid rgba(33, 33, 33, 0.786);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    padding: 15px;
+}
+
+section div {
+    background-color: rgb(230, 230, 230);
+    padding: 5px;
+}
+
+.calc-display {
+    background-color: rgba(32, 34, 67, 0.849);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-align: right;
+}
+
+.calc-display p {
+    display: block;
+    margin: 8px 20px 8px 0;
+    font-size: 35px;
+    color: rgb(217, 66, 66);
+    font-weight: 600;
+}
+
+.operations {
+    display: flex;
+    background-color:blanchedalmond
+    
+}
+
+.operations button {
+    height: 40px;
+    margin: 5px;
+    flex-basis: 100%;
+    background-color: rgb(255, 209, 141);
+    font-size: 20px;
+    border: 0.5px solid rgb(113, 113, 113);
+    border-radius: 10px;
+}
+
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:blanchedalmond
+}
+
+.digits button {
+    flex-basis: calc(33.33% - 10px); 
+    margin: 5px;
+    max-width: calc(33.33% - 10px); 
+    height: 60px;
+    background-color: rgb(255, 209, 141);
+    font-size: 20px;
+    border: 0.5px solid black;
+    border-radius: 10px;
+}

@@ -37,23 +37,20 @@ function operate(num1, num2, operator) {
 // Digit button event listener
 digitButtons.forEach(button => {
     button.addEventListener("click", (e) => {
-    // Prevent leading zeros
-    if (display.length == 1 && e.target.value == 0) {
-        return;
-    }
-    if (display == "ERROR") display = "", displayElement.innerText = "0";
-    // Append the digit to the display
-    display += e.target.value;
-    displayElement.innerText = display;
-    // Corrected logic for assigning digits to num1 and num2
-    if (operator == "") {
-        // Operator not yet selected; we're entering num1
-        num1 += e.target.value;
-    } else {
-        // Operator selected; we're entering num2
-        num2 += e.target.value;
-    }
-    });
+        // Prevent input overflow
+        if (display.length > 15) return;
+        // Prevent leading zeros
+        if (display.length == 1 && e.target.value == 0) return;
+        // Fix display after "ERROR" message
+        if (display == "ERROR") display = "", displayElement.innerText = "0";
+
+        // Append the digit to the display
+        display += e.target.value;
+        displayElement.innerText = display;
+
+        // Update num values accordingly
+        operator == "" ? num1 += e.target.value : num2 += e.target.value;
+        });
 });
 
 // Operate buttons event listener

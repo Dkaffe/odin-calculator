@@ -14,7 +14,7 @@ const backSpaceButton = document.querySelector("#backspace");
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
-const divide = (num1, num2) => num2 == 0 ? "Error" : num1 / num2;
+const divide = (num1, num2) => num1 / num2;
 
 // Perform operation with two nums + operator
 function operate(num1, num2, operator) {
@@ -80,11 +80,16 @@ operateButtons.forEach(button => {
 
 // Getting the result
 resultButton.addEventListener("click", (e) => {
+    if(operator == "/" && num2 == 0) {
+        display = "ERROR";
+        displayElement.innerText = display;
+        num1 = display, num2 = "", operator = "";
+    }
     if (operator != "" && num1 != "" && num2 != "") {
         display = operate(num1, num2, operator);
         // limiting decimals
         if(Math.floor(display) != display) {
-            display = display.toFixed(10);
+            display = parseFloat(display.toFixed(10));
         }
         displayElement.innerText = display;
         num1 = display, num2 = "", operator = "";
